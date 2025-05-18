@@ -18,31 +18,15 @@ proxies:
 # 全局配置 
 port: 7890
 socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-tproxy-port: 7894
 allow-lan: true
-bind-address: "*"
 ipv6: false
-unified-delay: true
-tcp-concurrent: true
 log-level: warning
-find-process-mode: 'off'
 # interface-name: en0
 global-client-fingerprint: chrome
-keep-alive-idle: 600
-keep-alive-interval: 15
-disable-keep-alive: false
 profile:
   store-selected: true
   store-fake-ip: true
 
-# 控制面板
-external-controller: 0.0.0.0:9090
-secret: ""
-external-ui: "/etc/mihomo/run/ui"
-external-ui-name: zashboard
-external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
 # 嗅探
 sniffer:
