@@ -79,9 +79,11 @@ dns:
  
 # 出站策略
 # 注意锚点必须放在引用的上方，可以集中把锚点全部放yaml的顶部。
-pr: &pr {type: select, proxies: [🚀 默认代理, 🔯 香港故转, 🔯 日本故转, ♻️ 香港自动, ♻️ 日本自动, ♻️ 美国自动, ♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, 直连]}
+pr: &pr 
+  {type: select, proxies: [🚀 默认代理, 🔯 香港故转, 🔯 日本故转, ♻️ 香港自动, ♻️ 日本自动, ♻️ 美国自动,♻️ 新加坡自动, ♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇸🇬 新加坡节点, 🌐 全部节点, 🌐 选择, 🌐 选择 1, 🌐 选择 2, 🌐 选择 3, 🌐 选择 4, 🌐 选择 5, 直连]}
+
 proxy-groups:
-  - {name: 🚀 默认代理, type: select, proxies: [🔯 香港故转, 🔯 日本故转, ♻️ 香港自动, ♻️ 日本自动, ♻️ 美国自动, ♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, 直连]}
+  - {name: 🚀 默认代理, type: select, proxies: [🔯 香港故转, 🔯 日本故转, ♻️ 香港自动, ♻️ 日本自动, ♻️ 美国自动, ♻️ 新加坡自动, ♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇸🇬 新加坡节点, 🌐 全部节点, 🌐 选择, 🌐 选择 1, 🌐 选择 2 , 直连]}
   - {name: 📹 YouTube, <<: *pr}
   - {name: 🍀 Google, <<: *pr}
   - {name: 🤖 ChatGPT, <<: *pr}
@@ -99,13 +101,21 @@ proxy-groups:
   - {name: 🇭🇰 香港节点, type: select, include-all: true, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: 🇯🇵 日本节点, type: select, include-all: true, filter: "(?i)日|jp|japan"}
   - {name: 🇺🇲 美国节点, type: select, include-all: true, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: 🇸🇬 新加坡节点, type: select, include-all: true, filter: "(?i)新|sg|singapore"}
   - {name: 🔯 香港故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
   - {name: 🔯 日本故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
   - {name: ♻️ 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
   - {name: ♻️ 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
   - {name: ♻️ 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
+  - {name: ♻️ 新加坡自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新|SG|(?i)Singapore))^((?!(港|台|日|韩|美)).)*$"}
   - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
   - {name: 🌐 全部节点, type: select, include-all: true}
+  - {name: 🌐 选择, type: select, include-all: true}
+  - {name: 🌐 选择 1, type: select, include-all: true}
+  - {name: 🌐 选择 2, type: select, include-all: true}
+  - {name: 🌐 选择 3, type: select, include-all: true}
+  - {name: 🌐 选择 4, type: select, include-all: true}
+  - {name: 🌐 选择 5, type: select, include-all: true}
 
 # 规则匹配
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
