@@ -2,7 +2,7 @@
 # 机场订阅
 proxy-providers:
   Airport1:
-    url: "https://substore.sakurasnow.xyz/2cXaAxRGfddmGz2yx1wA/download/collection/%E8%87%AA%E7%94%A8?target=ClashMeta"
+    url: "https://sub.oudd.de/GX63Hq2jAXiJJ59XPqzx/download/collection/ME?target=ClashMeta"
     type: http
     interval: 86400
     health-check:
