@@ -2,7 +2,7 @@
 # 机场订阅
 proxy-providers:
   Airport1:
-    url: "http://47.122.159.227:3010/A7fL92kqWbXpT1sJeY4z/download/collection/ME?target=ClashMeta"
+    url: "https://sub.oudd.de/sub/download/collection/ME"
     type: http
     interval: 86400
     health-check:
